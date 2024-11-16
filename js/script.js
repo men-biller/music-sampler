@@ -15,16 +15,15 @@ function resetAlbums() {
     });
 
     const playerContainer = document.getElementById("player-container");
-    playerContainer.style.display = "none"; // Hide the audio player
+    playerContainer.style.display = "none"; // hide audio player
 
     stopAllAudio(); // stops any audio currently playing
 }
 
 // audio player sources
 function setAudioSources(audioPlayer, songBaseName) {
-    audioPlayer.innerHTML = ""; // Clear previous sources
+    audioPlayer.innerHTML = ""; // clear
 
-    // Add .mp3 and .ogg sources
     const mp3Source = document.createElement("source");
     mp3Source.src = `audio/${songBaseName}.mp3`;
     mp3Source.type = "audio/mpeg";
@@ -33,37 +32,36 @@ function setAudioSources(audioPlayer, songBaseName) {
     oggSource.src = `audio/${songBaseName}.ogg`;
     oggSource.type = "audio/ogg";
 
-    // Append sources to the audio player
     audioPlayer.appendChild(mp3Source);
     audioPlayer.appendChild(oggSource);
 }
 
-// Function to handle album image clicks
+// album click
 function handleAlbumClick(albumId) {
     const playerContainer = document.getElementById("player-container");
     const songTitle = document.getElementById("song-title");
     const audioPlayer = document.getElementById("audio-player");
     const albumImages = document.querySelectorAll(".album");
 
-    // Check if the clicked album is the one currently displayed
+    // album display check
     if (playerContainer.style.display === "block" && playerContainer.dataset.currentAlbum === albumId) {
-        resetAlbums(); // Reset the albums and stop the song
+        resetAlbums(); // reset albums 
         return;
     }
 
     // Stop any currently playing audio
     stopAllAudio();
 
-    // Hide all album images except the clicked one
+    // hide all albums except 
     albumImages.forEach((album) => {
         if (album.id === albumId) {
-            album.style.display = "block"; // Keep the clicked album visible
+            album.style.display = "block"; // keep clicked album visible
         } else {
-            album.style.display = "none"; // Hide other albums
+            album.style.display = "none"; // hide other albums
         }
     });
 
-    // Display the correct song and player based on the album clicked
+    // more display functions and track/album matching
     switch (albumId) {
         case "album1":
             songTitle.textContent = "Selected Ambient Works 85-92 - Xtal";
@@ -86,16 +84,16 @@ function handleAlbumClick(albumId) {
             return;
     }
 
-    // Make the player container visible and store the current album ID
+    // current player container visible + store id
     playerContainer.style.display = "block";
-    playerContainer.dataset.currentAlbum = albumId; // Track the currently displayed album
+    playerContainer.dataset.currentAlbum = albumId; // track displayed album
 
-    // Play the audio
-    audioPlayer.load(); // Reload the sources
+    // play audio
+    audioPlayer.load(); // reload sources 
     audioPlayer.play();
 }
 
-// Add event listeners to album images
+// add event listeners 
 document.querySelectorAll(".album").forEach((album) => {
     album.addEventListener("click", (e) => {
         handleAlbumClick(e.target.id);
