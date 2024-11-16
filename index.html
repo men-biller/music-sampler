@@ -5,20 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aphex Twin</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<h1> Richard D. James</h1>
-<break>
-</break>
-<img src="images/aphex_twin_concert.jpg">
-<p>Aphex Twin is a groundbreaking electronic artist hailing from Cornwall, England, and is responsible for creating some
-    of the most esteemed electronic music ever heard. </p>
-<break>
-</break>
-<img src="images/selected_ambient_works_i.png">
-<img src="images/selected_ambient_works_ii.jpg">
-<img src="images/richard_d_james_album.jpg">
-<img src="images/drukqs.png">
-<footer>
-    This page was designed by Benjamin Miller at the University of Florida.
-</footer>
+
+<body class="bg-dark text-light">
+
+    <!-- Header Section -->
+    <header class="text-center py-4" style="background-color: #33261d;">
+        <h1 class="display-4 fw-bold" style="color: #d97c5b;">Richard D. James</h1>
+        <img src="images/aphex_twin_concert.jpg" alt="Aphex Twin Concert" class="img-fluid rounded shadow mb-3" style="max-height: 500px; object-fit: cover;">
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-3 fw-bold" style="color: #d97c5b;">About Aphex Twin</h2>
+                <p style="color: #e8b19c;">
+                    Aphex Twin, the pseudonym of Richard D. James, is a groundbreaking electronic artist hailing from Cornwall, England.
+                    He is widely regarded as one of the most innovative and influential figures in electronic music.
+                </p>
+            </div>
+
+            <div class="col-md-6 text-center">
+                <h2 class="mb-3 fw-bold" style="color: #d97c5b;">Album Art</h2>
+                <div class="d-flex flex-column align-items-center gap-3">
+                    <img id="album1" src="images/selected_ambient_works_i.png" alt="Selected Ambient Works 85-92" class="img-thumbnail album" style="background-color: #5a4235; width: 75%; max-width: 300px; cursor: pointer;">
+                    <img id="album2" src="images/selected_ambient_works_ii.jpg" alt="Selected Ambient Works Vol. II" class="img-thumbnail album" style="background-color: #5a4235; width: 75%; max-width: 300px; cursor: pointer;">
+                    <img id="album3" src="images/richard_d_james_album.jpg" alt="Richard D. James Album" class="img-thumbnail album" style="background-color: #5a4235; width: 75%; max-width: 300px; cursor: pointer;">
+                    <img id="album4" src="images/drukqs.png" alt="Drukqs" class="img-thumbnail album" style="background-color: #5a4235; width: 75%; max-width: 300px; cursor: pointer;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Song Title and Audio Player -->
+        <div id="player-container" class="text-center mt-5" style="display: none;">
+            <h3 id="song-title" class="mb-3" style="color: #d97c5b;"></h3>
+            <audio id="audio-player" controls></audio>
+        </div>
+    </main>
+
+    <footer class="text-center py-3" style="background-color: #33261d; color: #e8b19c;">
+        This page was designed by Benjamin Miller at the University of Florida.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
