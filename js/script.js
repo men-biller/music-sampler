@@ -1,13 +1,13 @@
-// Prevent multiple audio tracks from playing
+//stops audio from playing simultaneously
 function stopAllAudio() {
     const audioPlayer = document.getElementById("audio-player");
     if (audioPlayer) {
         audioPlayer.pause();
-        audioPlayer.currentTime = 0; // Reset the player to the beginning
+        audioPlayer.currentTime = 0; 
     }
 }
 
-// Function to reset all albums and hide the player
+// reset albums + hide player
 function resetAlbums() {
     const albumImages = document.querySelectorAll(".album");
     albumImages.forEach((album) => {
@@ -17,10 +17,10 @@ function resetAlbums() {
     const playerContainer = document.getElementById("player-container");
     playerContainer.style.display = "none"; // Hide the audio player
 
-    stopAllAudio(); // Stop any playing audio
+    stopAllAudio(); // stops any audio currently playing
 }
 
-// Function to set up audio player sources
+// audio player sources
 function setAudioSources(audioPlayer, songBaseName) {
     audioPlayer.innerHTML = ""; // Clear previous sources
 
